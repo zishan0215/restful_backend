@@ -23,7 +23,7 @@ def server_status(request):
 
 @api_view(['GET'])
 def process_request(request):
-    connid = request.GET.get('connid')
+    connid = request.GET.get('connId')
     if connid is not None:
         connid = int(connid)
     timeout = request.GET.get('timeout')
@@ -51,7 +51,7 @@ def process_request(request):
 @api_view(['PUT'])
 def kill(request):
     data = request.data
-    connid = data.get('connid')
+    connid = data.get('connId')
     try:
         process = Api.objects.get(connid=connid)
     except Api.DoesNotExist:
